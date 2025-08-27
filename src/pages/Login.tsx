@@ -14,24 +14,22 @@ function Login() {
   };
 
   return (
-    <div className="h-svh flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-fuchsia-500">
+    <div className="h-svh flex items-center justify-center bg-gray-200">
       <div className="w-full max-w-md p-6 shadow-md">
         <Link
-          className="flex items-center gap-2 mb-6 text-rose-200 hover:underline self-start"
+          className="flex items-center gap-2 mb-6 text-sky-500 hover:underline self-start"
           to="/"
         >
           <ChevronLeft />
           <p>Kembali</p>
         </Link>
-        <h1 className="text-2xl font-bold mb-4 text-center text-white">
-          Login
-        </h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
         <form
           onSubmit={handleSubmit}
           className="p-6 rounded-lg shadow-xl w-full max-w-sm space-y-4"
         >
           <InputField
-            label="Email/NIS"
+            label="Email/NIK/NIS/N"
             id="email"
             type="email"
             value={email}
@@ -54,9 +52,9 @@ function Login() {
           </button>
         </form>
 
-        <p className="mt-4 text-center text-white">
+        <p className="mt-4 text-center ">
           Belum punya akun?{" "}
-          <Link to="/register" className="text-sky-200 hover:underline">
+          <Link to="/register" className="text-sky-500 hover:underline">
             Register
           </Link>
         </p>

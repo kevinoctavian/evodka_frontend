@@ -8,6 +8,7 @@ function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [school, setSchool] = useState("0");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,38 +20,28 @@ function Register() {
   };
 
   return (
-    <div className="h-svh flex items-center justify-center bg-gradient-to-br  from-indigo-500 via-purple-500 to-fuchsia-500">
+    <div className="h-svh flex items-center justify-center bg-gray-200">
       <div className="w-full max-w-md p-6 shadow-md">
         <Link
-          className="flex items-center gap-2 mb-6 text-rose-200 hover:underline self-start"
+          className="flex items-center gap-2 mb-6 text-sky-500 hover:underline self-start"
           to="/"
         >
           <ChevronLeft />
           <p>Kembali</p>
         </Link>
-        <h1 className="text-2xl font-bold mb-4 text-center text-white">
-          Register
-        </h1>
+        <h1 className="text-2xl font-bold mb-4 text-center">Register</h1>
         <form
           onSubmit={handleSubmit}
           className="p-6 rounded-lg shadow-2xl w-full max-w-sm space-y-4"
         >
-          <div className="space-y-2">
-            <InputField
-              label="NIS"
-              id="NIS"
-              type="text"
-              maxLength={20}
-              value={nis}
-              onValueChange={(value) => setNis(value)}
-            />
-            <p className="text-xs">
-              *{" "}
-              <span className="text-sky-300">
-                NIS: Nomor Induk Siswa Negeri/Swasta
-              </span>
-            </p>
-          </div>
+          <InputField
+            label="NIK/NISN/NIS"
+            id="NIS"
+            type="text"
+            maxLength={20}
+            value={nis}
+            onValueChange={(value) => setNis(value)}
+          />
 
           <InputField
             label="Username"
@@ -68,8 +59,6 @@ function Register() {
             onValueChange={(value) => setEmail(value)}
           />
 
-          {/* TODO: Tambahkan nama sekolah */}
-
           <InputField
             label="Password"
             id="password"
@@ -77,6 +66,30 @@ function Register() {
             value={password}
             onValueChange={(value) => setPassword(value)}
           />
+
+          {/* TODO: Tambahkan nama sekolah */}
+          <div className="">
+            <label htmlFor="school" className="sr-only">
+              Sekolah
+            </label>
+            <select
+              name="school"
+              className="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-slate-600  focus:outline-none focus:ring-0 focus:border-slate-200 peer"
+              id="school"
+              onChange={(e) => setSchool(e.target.value)}
+              value={school}
+            >
+              <option value="0" disabled>
+                Pilih Sekolah/Kampus saat ini
+              </option>
+              {/* TODO: get list school from backend */}
+              <option value="1">SMAN 1 Palangka Raya</option>
+              <option value="2">SMAN 2 Palangka Raya</option>
+              <option value="3">SMAN 3 Palangka Raya</option>
+              <option value="4">SMAN 4 Palangka Raya</option>
+              <option value="5">SMAN 5 Palangka Raya</option>
+            </select>
+          </div>
 
           <button
             type="submit"
@@ -86,9 +99,9 @@ function Register() {
           </button>
         </form>
 
-        <p className="mt-4  text-center text-white">
+        <p className="mt-4  text-center">
           Sudah punya akun?{" "}
-          <Link to="/login" className="text-sky-300 hover:underline">
+          <Link to="/login" className="text-sky-500 hover:underline">
             Login
           </Link>
         </p>

@@ -1,6 +1,15 @@
 import { Hero, Navbar, Footer } from "@components/components";
+import axios from "axios";
+import { useEffect } from "react";
 
 function Home() {
+
+  useEffect(() => {
+    axios.get("http://localhost:8000/").then(v => {
+      console.log(v);
+    })
+  }, []);
+
   return (
     <>
       <Navbar />
